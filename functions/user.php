@@ -75,7 +75,7 @@ function upload(){
 	}
 
     //cek format yang didukung
-    $ekstenstionValid = ['jpg', 'jpeg', 'png', 'gif'];
+    $ekstenstionValid = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
     $ektension = explode('.', $name);
     $ektension = strtolower(end($ektension));
 

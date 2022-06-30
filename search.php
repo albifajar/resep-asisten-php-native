@@ -41,7 +41,8 @@ if(isset($_GET['search'])){
         <div class="card" style="width: 400px;">
           <img src="assets/img/<?=$row['thumbnail']?>" class="card-img-top" style="width: 100%; height: 400px; object-fit:cover">
           <div class="card-body py-2" style="bottom: 0; left:0; right: 0;">
-            <a href="<?=$row['thumbnail']?>" class="text-dark" style="text-decoration: none"><h5 class="card-title fw-bold"><?=$row['title']?></h5></a>
+            <a href="<?=$row['thumbnail']?>" class="text-dark" style="text-decoration: none"><h5 class="card-title fw-bold"><?=html_entity_decode($row['title'])?></h5></a>
+            <?=html_entity_decode($row['content'])?>
           </div>
         </div>
       </div>
