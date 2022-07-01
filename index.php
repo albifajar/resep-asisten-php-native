@@ -1,5 +1,6 @@
 <?php
 include "vendor.php";
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,15 +60,16 @@ include "vendor.php";
 			</div>
 			<div class="d-flex justify-content-center mt-5">
 				<div class="col-lg-4 col-12">
-					<form class="d-flex" method="get" action="search.php">
-						<input class="form-control form-control-lg" type="text" name="search" style="border-radius: 9999px 0px 0px 9999px;" value="ayam">
-						<button class="btn btn-primary btn-lg" type="submit" style="border-radius: 0px 9999px 9999px 0px;">Cari</button>
-					</form>
-				</div>
-			</div>
-			<div class="text-center mt-4">
-			<span>atau <a class="text-dark" href="<?=BASE_URL?>/user/registrasi.php" style="">anda ingin membagikan resep makanan lezat anda? </a></span>
-			</div>
+            <form class="d-flex" method="get" action="search.php">
+              <input class="form-control form-control-lg" type="text" name="search" style="border-radius: 9999px 0px 0px 9999px;" value="ayam">
+              <button class="btn btn-primary btn-lg" type="submit" style="border-radius: 0px 9999px 9999px 0px;">Cari</button>
+            </form>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+        <span>atau <a class="text-dark" href="<?=BASE_URL?>/user/registrasi.php" style="">anda ingin membagikan resep makanan lezat anda? </a></span>
+        </div>        
+      </div>
 		</div>
   </div>
 	<script src="../assets/js/popper.min.js"></script>

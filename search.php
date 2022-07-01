@@ -11,7 +11,15 @@ if(isset($_GET['search'])){
     `content` LIKE '%$search%'";
   
   $data = query($query);
+
+  $query1 = "SELECT * FROM recipe WHERE 
+    `title` NOT LIKE '%$search%' OR 
+    `name` NOT LIKE '%$search%' OR 
+    `content` NOT LIKE '%$search%' LIMIT 3 ";
+
+  $notlike = query($query1);
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -48,6 +56,7 @@ if(isset($_GET['search'])){
       </div>
     </nav>
 		<main class="container py-5 mt-5">
+      <p class="fs-2">Menampilkan hasil untuk "<?= $search ?>"</p>
       <div class="row" data-masonry='{"percentPosition": true }'>
       <?php if (count($data) < 1) : ?>
         <div class="mt-4">
@@ -69,5 +78,31 @@ if(isset($_GET['search'])){
       <?php endforeach; ?>
       </div>
 		</main>
+    <div class="w-100 px-5">
+            <p class="fs-2">Resep Lainnya</p>
+            <div>
+            <?php if (count($notlike) < 1) : ?>
+            <div class="mt-4">
+              <h2 class="text-center">Maaf, sepertinya belum resep dengan bahan lainnya</h2>
+            </div>
+            <?php endif; ?>
+            <div class="d-flex justify-content-around pb-5">
+              <?php foreach ($notlike as $row):?>
+              <div class="mt-4">
+                <div class="card" style="width: 400px;">
+                  <div style="overflow:hidden; height: 200px;">
+                    <img src="assets/img/<?=$row['thumbnail']?>" class="card-img-top img-transition" style="width: 100%; height: 100%; object-fit:cover">
+                  </div>
+                  <div class="card-body py-2" style="bottom: 0; left:0; right: 0;">
+                    <a href="<?=$row['thumbnail']?>" class="text-dark" style="text-decoration: none"><h5 class="card-title fw-bold"><?=html_entity_decode($row['title'])?></h5></a>
+                  </div>
+                </div>
+              </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div>
+            
+          </div>
 </body>
 </html>
