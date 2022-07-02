@@ -78,7 +78,7 @@ if(isset($_GET['search'])){
       <?php endforeach; ?>
       </div>
 		</main>
-    <div class="w-100 px-5">
+    <div class="w-100 px-5 container">
             <p class="fs-2">Resep Lainnya</p>
             <div>
             <?php if (count($notlike) < 1) : ?>
@@ -94,7 +94,7 @@ if(isset($_GET['search'])){
                     <img src="assets/img/<?=$row['thumbnail']?>" class="card-img-top img-transition" style="width: 100%; height: 100%; object-fit:cover">
                   </div>
                   <div class="card-body py-2" style="bottom: 0; left:0; right: 0;">
-                    <a href="<?=$row['thumbnail']?>" class="text-dark" style="text-decoration: none"><h5 class="card-title fw-bold"><?=html_entity_decode($row['title'])?></h5></a>
+                    <a href="?search=<?=$row['title']?>" class="text-dark" style="text-decoration: none"><h5 class="card-title fw-bold"><?=html_entity_decode($row['title'])?></h5></a>
                   </div>
                 </div>
               </div>
